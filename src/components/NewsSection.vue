@@ -37,7 +37,7 @@ export default {
 
         axios
             // .get('https://www.omdbapi.com/?apikey=1e176025&s=harry')
-            .get('http://newsapi.org/v2/everything?q=books&from=2020-12-21&sortBy=publishedAt&apiKey=c2d95a52111d43fcb4c8bdac5d7d1310')
+            .get('http://newsapi.org/v2/everything?q=books&sources=bbc-news&from=2020-12-01&sortBy=publishedAt&apiKey=c2d95a52111d43fcb4c8bdac5d7d1310')
             .then( response => { this.noticias = response.data.articles.slice(0,4) })
         console.log(this.noticias)
         
