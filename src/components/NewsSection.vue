@@ -35,11 +35,22 @@ export default {
 
     created(){
 
-        axios
-            // .get('https://www.omdbapi.com/?apikey=1e176025&s=harry')
-            .get('http://newsapi.org/v2/everything?q=books&sources=bbc-news&from=2020-12-01&sortBy=publishedAt&apiKey=c2d95a52111d43fcb4c8bdac5d7d1310')
-            .then( response => { this.noticias = response.data.articles.slice(0,4) })
-        console.log(this.noticias)
+        axios({
+            method: 'get',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            url: 'http://newsapi.org/v2/everything?q=books&sources=bbc-news&from=2020-12-01&sortBy=publishedAt&apiKey=c2d95a52111d43fcb4c8bdac5d7d1310',
+            data: { user_data : true }
+            }).then( response => { 
+                this.noticias = response.data.articles.slice(0,4) 
+                console.log(this.noticias)})
+            .catch(e => console.log(e));
+      
+        // axios
+        //     // .get('https://www.omdbapi.com/?apikey=1e176025&s=harry')
+        //     .get('http://newsapi.org/v2/everything?q=books&sources=bbc-news&from=2020-12-01&sortBy=publishedAt&apiKey=c2d95a52111d43fcb4c8bdac5d7d1310', config)
+            // .then( response => { this.noticias = response.data.articles.slice(0,4) })
+            // console.log(this.noticias)
+            // .catch(e => console.log(e));
         
 
     }
